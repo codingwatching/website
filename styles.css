@@ -10,6 +10,7 @@ body {
     color: white;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -17,6 +18,10 @@ body {
 main {
     text-align: center;
     padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .app-icon-container {
@@ -76,6 +81,52 @@ h1 {
     box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
 }
 
+footer {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-2px);
+}
+
+.social-icon img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.social-icon:hover img {
+    opacity: 1;
+}
+
+.copyright {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 2.5rem;
@@ -88,5 +139,18 @@ h1 {
     .app-icon {
         width: 100px;
         height: 100px;
+    }
+    
+    footer {
+        padding: 0.75rem 1rem;
+    }
+    
+    .social-links {
+        gap: 1rem;
+    }
+    
+    .social-icon {
+        width: 18px;
+        height: 18px;
     }
 } 
