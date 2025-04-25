@@ -114,6 +114,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 .highlight {
     background: linear-gradient(320deg, #B371D6, #E89D7B);
     -webkit-background-clip: text;
