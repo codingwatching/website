@@ -1,0 +1,23 @@
+title: Blip - Tools of Mass Imagination
+description: Empowering visual art creators with the ability to create games with AI on the phone.
+url: https://blip.game
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+permalink: "/:title"
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Dockerfile
+  - docker-test.sh
+  - .git/
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - node_modules/
+  - README.md

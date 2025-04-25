@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ '/img/favicon.ico' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+    {% seo %}
+</head>
+<body>
+    <header>
+        <a href="/"><img src="{{ '/img/blip-logo-with-name-white.svg' | relative_url }}" alt="Blip" class="header-logo"></a>
+        <div class="social-links">
+            <a href="https://x.com/__blip" target="_blank" rel="noopener noreferrer" class="social-icon">
+                <img src="{{ '/img/x-icon.svg' | relative_url }}" alt="X">
+            </a>
+            <a href="https://discord.gg/blipgame" target="_blank" rel="noopener noreferrer" class="social-icon">
+                <img src="{{ '/img/discord-icon.svg' | relative_url }}" alt="Discord">
+            </a>
+            <a href="https://github.com/bliporg/blip" target="_blank" rel="noopener noreferrer" class="social-icon">
+                <img src="{{ '/img/github-icon.svg' | relative_url }}" alt="GitHub">
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="markdown-content">
+            {{ content }}
+        </div>
+    </main>
+    <footer>
+        <p class="copyright">© 2025 Blip. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://x.com/__blip" target="_blank" rel="noopener noreferrer" class="social-icon">
+                <img src="{{ '/img/x-icon.svg' | relative_url }}" alt="X">
+            </a>
+            <a href="https://discord.gg/blipgame" target="_blank" rel="noopener noreferrer" class="social-icon">
+                <img src="{{ '/img/discord-icon.svg' | relative_url }}" alt="Discord">
+            </a>
+            <a href="https://github.com/bliporg/blip" target="_blank" rel="noopener noreferrer" class="social-icon">
+                <img src="{{ '/img/github-icon.svg' | relative_url }}" alt="GitHub">
+            </a>
+        </div>
+    </footer>
+    <script src="{{ '/script.js' | relative_url }}"></script>
+</body>
+</html> 

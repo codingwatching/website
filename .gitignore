@@ -1,0 +1,13 @@
+# Jekyll generated files
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Ruby environment
+.bundle/
+vendor/
+Gemfile.lock
+
+# OS files
+.DS_Store 
