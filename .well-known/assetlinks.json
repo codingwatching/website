@@ -1,0 +1,15 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls",
+            "delegate_permission/common.get_login_creds"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.voxowl.blip",
+            "sha256_cert_fingerprints": [
+                "B7:DB:85:E7:9C:1E:F5:4D:BF:5D:CB:1D:68:21:17:B1:0A:8A:F9:01:0F:29:43:6A:FC:66:20:59:6A:24:A4:4A"
+            ]
+        }
+    }
+]
