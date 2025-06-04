@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#181818">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Blip - Tools of Mass Imagination</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" href="styles.css">
@@ -32,24 +35,45 @@
         </div>
     </header>
     <main>
-        <div class="main-content">
-            <div id="iphone-model-container"></div>
-            <div class="app-icon-container">
-                <img src="img/ios-icon.png" alt="Blip App Icon" class="app-icon">
-                <img src="img/blip-name-white.svg" alt="Blip" class="app-name">
+        <video id="video" loop muted crossorigin="anonymous" playsinline style="display:none" autoplay>
+			<!-- <source src="videos/pano.webm"> -->
+			<source src="videos/demo.mp4">
+		</video>
+        <div class="block-group">
+            <div class="block stretch no-flex">
+                <div id="iphone-model-container"></div>
             </div>
-            <p class="subtitle">Tools of Mass Imagination.</p>
-            <p class="description">
-                We're building an app called <span class="highlight">Blip</span>.<br>It's actually a <span class="highlight">cross-platform fully scriptable game engine</span>.<br>
-Our mission is to empower all visual art <span class="highlight">creators</span> with the ability to<br><span class="highlight">create games with AI on the phone</span>.</p>
-            <p class="beta-text">Opening access to first beta testers soon through TestFlight:</p>
-            <a href="https://tally.so/r/w2l9VD" class="cta-button">Join the Waitlist</a>
-            <p class="preview-text">Here's a recent post on X that will give you a preview:</p>
-            <div class="tweet-container">
-                <blockquote class="twitter-tweet" data-theme="dark">
-                    <a href="https://twitter.com/aduermael/status/1909414545300549647"></a>
-                </blockquote>
-                <script async src="https://platform.twitter.com/widgets.js"></script>
+            <div class="block right">
+                <div class="app-icon-container">
+                    <img src="img/ios-icon.png" alt="Blip App Icon" class="app-icon">
+                    <img src="img/blip-name-white.svg" alt="Blip" class="app-name">
+                </div>
+                <p class="subtitle">The <span class="highlight" id="rotating-text">Open-Source</span><span class="opt-break"><br></span> <span>Roblox Alternative!</span></p>
+                <p class="description">Our mission is to empower all creators to build and share all kinds of games, directly from their phones.</p>
+            </div>
+        </div>
+        <div class="block margin-bottom">
+            <h2>Early Days 🛠️</h2>
+            <p class="beta-text">Those are the early days of Blip! If you want to be forever remembered as one of the pioneers, fill out this form to access the beta:</p>
+            <a href="https://ping.blip.game/beta" class="cta-button">Beta Registration Form</a>
+        </div>
+        <div class="block-group">
+            <div class="block stretch">
+                <h2>Game Creation for All 🕹️</h2>
+                <p><strong>Artists</strong>, create 3D models assembling cubes within the app, import textured models made in <a href="https://www.blender.org">Blender</a>, <a href="https://www.blockbench.net">Blockbench</a> or any other 3D editor, or just use items published by the community.</p>
+                <p><strong>Developers</strong>, script games in <a href="https://luau-lang.org/">Luau</a>, the same language used by Roblox! Publish your open-source modules on <a href="https://github.com">GitHub</a> and use those made by other developers.</p>
+                <img src="img/creation-devices.png" alt="Game Creation for All">
+            </div>
+            <div class="block stretch">
+                <h2>AI Where You Need It ✨</h2>
+                <p>Summon AI when you see fit to generate code, fix bugs, setup lights, and more. It's here to help you get the job done, not to replace your creativity!</p>
+                <p>Here's an example showing how you can add logic to a scene, asking AI to code for you:</p>
+                <div class="tweet-container">
+                    <blockquote class="twitter-tweet" data-theme="dark">
+                        <a href="https://twitter.com/aduermael/status/1909414545300549647"></a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js"></script>
+                </div>
             </div>
         </div>
     </main>

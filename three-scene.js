@@ -7,8 +7,8 @@ const scene = new THREE.Scene();
 scene.background = null; // Transparent background
 
 // Create camera
-const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.z = 15;
+const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 25;
 
 // Create renderer
 const container = document.getElementById('iphone-model-container');
@@ -21,7 +21,7 @@ container.appendChild(renderer.domElement);
 onWindowResize();
 
 // Create video texture
-const video = document.createElement('video');
+const video = document.getElementById( 'video' );
 video.src = 'videos/demo.mp4';
 video.loop = true;
 video.muted = true;
@@ -56,29 +56,31 @@ controls.enableDamping = true;
 controls.dampingFactor = 0.05;
 controls.enableZoom = false;
 
+// Disable controls on touch devices to prevent scroll conflicts
+controls.enablePan = false;
+if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    controls.enableRotate = false;
+}
+
 // Load the model
 const loader = new GLTFLoader();
+let iphoneModel = null; // Store reference to the model for animation
+
+let baseRotation = Math.PI * 0.1;
+
 loader.load(
     'models/iphone.glb',
     function (gltf) {
         const model = gltf.scene;
+        iphoneModel = model; // Store reference
         scene.add(model);
         
         // Find the screen object and apply video texture
         model.traverse((node) => {
             if (node.name === 'screen') {
                 if (node.material) {
-                    // Reset material for better color reproduction
-                    // node.material = new THREE.SpriteMaterial({ map: videoTexture, opacity: 100, transparent: false });
-
                     node.material = new THREE.MeshStandardMaterial({
                         map: videoTexture,
-                        // emissive: new THREE.Color(0xffffff),
-                        map: videoTexture,
-                        // emissiveMap: videoTexture,
-                        // emissiveIntensity: 1.0,
-                        // transparent: false,
-                        // opacity: 1.0,
                         flatShading: true,
                         metalness: 0,
                         roughness: 0,
@@ -89,17 +91,12 @@ loader.load(
                     node.material.map.center = videoTexture.center;
                     node.material.map.repeat = videoTexture.repeat;
                     node.material.map.offset = videoTexture.offset;
-                    // Apply same properties to emissive map
-                    node.material.emissiveMap.rotation = videoTexture.rotation;
-                    node.material.emissiveMap.center = videoTexture.center;
-                    node.material.emissiveMap.repeat = videoTexture.repeat;
-                    node.material.emissiveMap.offset = videoTexture.offset;
                 }
             }
         });
         
         // Auto-rotate the model
-        model.rotation.y = Math.PI / 4;
+        model.rotation.y = baseRotation;
         
         // Center the model
         const box = new THREE.Box3().setFromObject(model);
@@ -128,6 +125,21 @@ function onWindowResize() {
 // Animation loop
 function animate() {
     requestAnimationFrame(animate);
+    
+    // Gentle floating animation
+    if (iphoneModel) {
+        const time = Date.now() * 0.001; // Convert to seconds
+        
+        // Gentle vertical floating (±0.3 units)
+        iphoneModel.position.y = Math.sin(time * 0.8) * 0.3;
+        
+        // Gentle rotation around Y axis (±5 degrees)
+        iphoneModel.rotation.y = baseRotation + Math.sin(time * 0.6) * (Math.PI / 36); // ±5 degrees
+        
+        // Very subtle tilt on X axis (±2 degrees)
+        iphoneModel.rotation.x = Math.sin(time * 0.5) * (Math.PI / 90); // ±2 degrees
+    }
+    
     controls.update();
     renderer.render(scene, camera);
 }
